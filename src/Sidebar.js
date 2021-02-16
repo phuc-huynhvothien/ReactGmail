@@ -45,7 +45,6 @@ function Sidebar(props) {
                 </div>
             </div>
         </div>
-
     );
 }
 
