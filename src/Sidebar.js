@@ -15,15 +15,21 @@ import DuoIcon from '@material-ui/icons/Duo'
 import PhoneIcon from '@material-ui/icons/Phone'
 import SidebarOption from './SidebarOption';
 import { LabelImportant } from '@material-ui/icons';
+import { useDispatch } from 'react-redux';
+import { openSendMessage } from './features/mailSlice';
 Sidebar.propTypes = {
 
 };
 
 function Sidebar(props) {
+    const dispatch = useDispatch();
     return (
         <div className="sidebar">
-            <Button startIcon={<AddIcon fontSize="large"
-            />} className="sidebar__compose" >Compose</Button>
+            <Button startIcon={<AddIcon fontSize="large"/>} 
+            className="sidebar__compose" 
+            onClick={()=>dispatch(openSendMessage())}
+            >Compose</Button>
+
             <SidebarOption icon={<InboxIcon />} title="Inbox" number="54" />
             <SidebarOption icon={<StarIcon />} title="Started" number="54" />
             <SidebarOption icon={<AccessTimeIcon />} title="Snoozed" number="54" />
